@@ -52,7 +52,6 @@ public class Application implements CommandLineRunner {
         repository.save(procesor);
         repository.save(laptop);
 
- //       repository.findByName("Laptop");
         List<UniversalObject> list  = repository.findWithQuery("{name : 'Laptop'}");
         list.forEach(System.out::println);
         list  = repository.findWithQuery("{'objects.name' : 'Lenovo'}");
