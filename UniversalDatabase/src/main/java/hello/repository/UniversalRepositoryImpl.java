@@ -1,6 +1,6 @@
 package hello.repository;
 
-import hello.UniversalObject;
+import hello.model.UniversalObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.BasicQuery;

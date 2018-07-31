@@ -1,5 +1,5 @@
 import hello.Application;
-import hello.UniversalObject;
+import hello.model.UniversalObject;
 import hello.repository.UniversalRepository;
 import org.junit.After;
 import org.junit.Assert;

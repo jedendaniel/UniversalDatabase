@@ -1,6 +1,6 @@
 package hello.repository;
 
-import hello.UniversalObject;
+import hello.model.UniversalObject;
 
 import java.util.List;
 

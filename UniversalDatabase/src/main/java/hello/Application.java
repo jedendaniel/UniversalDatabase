@@ -1,5 +1,6 @@
 package hello;
 
+import hello.model.UniversalObject;
 import hello.repository.UniversalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
