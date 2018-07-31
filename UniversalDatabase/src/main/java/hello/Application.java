@@ -20,9 +20,10 @@ public class Application implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+        displayAll();
+    }
 
-        repository.deleteAll();
-
+    private void saveExampleData(){
         UniversalObject laptop1 = new UniversalObject("Laptop");
         UniversalObject procesor1 = new UniversalObject("CPU");
         procesor1.addObject("name", "intel core i5 4200m");
@@ -52,11 +53,19 @@ public class Application implements CommandLineRunner {
         laptop.addObject("cpu", procesor);
         repository.save(procesor);
         repository.save(laptop);
+    }
 
-        List<UniversalObject> list  = repository.findWithQuery("{name : 'Laptop'}");
-        list.forEach(System.out::println);
-        list  = repository.findWithQuery("{'objects.name' : 'Lenovo'}");
+    private void deleteAll(){
+        repository.deleteAll();
+    }
+
+    private void displayFoundWithQuery(){
+        List<UniversalObject> list  = repository.findWithQuery("{'objects.name' : 'Lenovo y50-70'}");
         list.forEach(System.out::println);
     }
 
+    private void displayAll(){
+        List<UniversalObject> list  = repository.findAll();
+        list.forEach(System.out::println);
+    }
 }

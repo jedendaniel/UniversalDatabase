@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.core.query.Query;
 
 import java.util.List;
 
-public class UniversalRepositoryImpl implements UniversalRepositoryExtension {
+public class UniversalRepositoryImpl implements UniversalRepositoryCustom {
 
     @Autowired
     MongoTemplate mongoTemplate;

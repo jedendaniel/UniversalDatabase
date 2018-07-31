@@ -1,6 +1,7 @@
 import hello.Application;
 import hello.UniversalObject;
 import hello.repository.UniversalRepository;
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -24,14 +25,26 @@ public class UniversalRepositoryTest {
 
     @Before
     public void setUpData(){
-        sampleUniversalObject = new UniversalObject("Laptop");
-        sampleUniversalObject.addObject("price",2000);
+        sampleUniversalObject = new UniversalObject("Object");
+        sampleUniversalObject.addObject("SubObject",2000);
         universalRepository.save(sampleUniversalObject);
     }
 
+    @After
+    public void tearDrop(){
+        universalRepository.delete(sampleUniversalObject);
+    }
+
     @Test
-    public void testFindWithQuery(){
-        List<UniversalObject> findResults = universalRepository.findWithQuery("{'objects.price':2000}");
-        Assert.assertEquals(sampleUniversalObject.getObject("price"),findResults.get(0).getObject("price"));
+    public void testObjectFindWithQuery(){
+        List<UniversalObject> findResults =
+                universalRepository.findWithQuery("{'id':'" + sampleUniversalObject.id + "'}");
+        Assert.assertEquals(sampleUniversalObject,findResults.get(0));
+    }
+
+    @Test
+    public void testSubObjectFindWithQuery(){
+        List<UniversalObject> findResults = universalRepository.findWithQuery("{'objects.SubObject':2000}");
+        Assert.assertEquals(sampleUniversalObject.getObject("SubObject"),findResults.get(0).getObject("SubObject"));
     }
 }

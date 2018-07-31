@@ -4,6 +4,6 @@ import hello.UniversalObject;
 
 import java.util.List;
 
-public interface UniversalRepositoryExtension {
+public interface UniversalRepositoryCustom {
     List<UniversalObject> findWithQuery(String queryString);
 }
